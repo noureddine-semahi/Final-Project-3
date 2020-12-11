@@ -3,21 +3,21 @@ import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import AddTutorial from "./components/add-tutorial.component";
-import Tutorial from "./components/tutorial.component";
-import TutorialsList from "./components/tutorials-list.component";
+import AddResolution from "./components/add-resolution.component";
+import Resolution from "./components/resolution.component";
+import ResolutionsList from "./components/resolutions-list.component";
 
 class App extends Component {
   render() {
     return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/tutorials"} className="navbar-brand">
+          <Link to={"/resolutions"} className="navbar-brand">
             My New Year's Resolutions
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to={"/tutorials"} className="nav-link">
+              <Link to={"/resolutions"} className="nav-link">
                 My Goals
               </Link>
             </li>
@@ -31,9 +31,9 @@ class App extends Component {
 
         <div className="container mt-3">
           <Switch>
-            <Route exact path={["/", "/tutorials"]} component={TutorialsList} />
-            <Route exact path="/add" component={AddTutorial} />
-            <Route path="/tutorials/:id" component={Tutorial} />
+            <Route exact path={["/", "/resolutions"]} component={ResolutionsList} />
+            <Route exact path="/add" component={AddResolution} />
+            <Route path="/resolutions/:id" component={Resolution} />
           </Switch>
         </div>
       </div>
