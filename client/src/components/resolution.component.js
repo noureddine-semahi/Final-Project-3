@@ -7,7 +7,7 @@ export default class Resolution extends Component {
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.getResolution = this.getResolution.bind(this);
-    this.updatePublished = this.updatePublished.bind(this);
+    this.updateAchieved = this.updateAchieved.bind(this);
     this.updateResolution = this.updateResolution.bind(this);
     this.deleteResolution = this.deleteResolution.bind(this);
 
@@ -16,7 +16,7 @@ export default class Resolution extends Component {
         id: null,
         title: "",
         description: "",
-        published: false
+        achieved: false
       },
       message: ""
     };
@@ -63,12 +63,12 @@ export default class Resolution extends Component {
       });
   }
 
-  updatePublished(status) {
+  updateAchieved(status) {
     var data = {
       id: this.state.currentResolution.id,
       title: this.state.currentResolution.title,
       description: this.state.currentResolution.description,
-      published: status
+      achieved: status
     };
 
     ResolutionDataService.update(this.state.currentResolution.id, data)
@@ -76,7 +76,7 @@ export default class Resolution extends Component {
         this.setState(prevState => ({
           currentResolution: {
             ...prevState.currentResolution,
-            published: status
+            achieved: status
           }
         }));
         console.log(response.data);
@@ -147,23 +147,23 @@ export default class Resolution extends Component {
                 <label>
                   <strong>Status:</strong>
                 </label>
-                {currentResolution.published ? "Published" : "Pending"}
+                {currentResolution.achieved ? "Achieved" : "Still working on it"}
               </div>
             </form>
 
-            {currentResolution.published ? (
+            {currentResolution.achieved ? (
               <button
                 className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(false)}
+                onClick={() => this.updateAchieved(false)}
               >
-                UnPublish
+                Work more
               </button>
             ) : (
               <button
                 className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(true)}
+                onClick={() => this.updateAchieved(true)}
               >
-                Publish
+                Achieved !!
               </button>
             )}
 
