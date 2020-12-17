@@ -12,8 +12,8 @@ exports.create = (req, res) => {
   // Create a Resolution
   const resolution = new Resolution({
     title: req.body.title,
-    description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    goals: req.body.goals,
+    achieved: req.body.achieved ? req.body.achieved : false
   });
 
   // Save Resolution in the database
@@ -128,9 +128,9 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-// Find all published Resolutions
-exports.findAllPublished = (req, res) => {
-  Resolution.find({ published: true })
+// Find all achieved Resolutions
+exports.findAllAchieved = (req, res) => {
+  Resolution.find({ achieved: true })
     .then(data => {
       res.send(data);
     })

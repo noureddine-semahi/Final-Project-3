@@ -7,6 +7,7 @@ export default class ResolutionsList extends Component {
     super(props);
     this.onChangeSearchTitle = this.onChangeSearchTitle.bind(this);
     this.retrieveResolutions = this.retrieveResolutions.bind(this);
+    this.findAllAchieved = this.findAllAchieved.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveResolution = this.setActiveResolution.bind(this);
     this.removeAllResolutions = this.removeAllResolutions.bind(this);
@@ -43,6 +44,20 @@ export default class ResolutionsList extends Component {
       .catch(e => {
         console.log(e);
       });
+  }
+
+  findAllAchieved() {
+    ResolutionDataService.getAll({ achieved: true })
+      .then(response => {
+        this.setState({
+          resolutions: response.data
+        });
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+
   }
 
   refreshList() {
@@ -93,8 +108,9 @@ export default class ResolutionsList extends Component {
     const { searchTitle, resolutions, currentResolution, currentIndex } = this.state;
 
     return (
+      
       <div className="list row">
-        <div className="col-md-8">
+        <div className="col-md-12">
           <div className="input-group mb-3">
             <input
               type="text"
@@ -139,6 +155,12 @@ export default class ResolutionsList extends Component {
           >
             Remove All
           </button>
+          <button
+            className="m-3 btn btn-sm btn-danger"
+            onClick={this.findAllAchieved}
+          >
+            Sort by Status
+          </button>
         </div>
         <div className="col-md-6">
           {currentResolution ? (
@@ -152,15 +174,15 @@ export default class ResolutionsList extends Component {
               </div>
               <div>
                 <label>
-                  <strong>Description:</strong>
+                  <strong>Goals:</strong>
                 </label>{" "}
-                {currentResolution.description}
+                {currentResolution.goals}
               </div>
               <div>
                 <label>
                   <strong>Status:</strong>
                 </label>{" "}
-                {currentResolution.published ? "Published" : "Pending"}
+                {currentResolution.achieved ? "Achieved" : "Need some more work"}
               </div>
 
               <Link
@@ -173,7 +195,7 @@ export default class ResolutionsList extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a Resolution...</p>
+              <p>Please click on a Resolution to edit the details</p>
             </div>
           )}
         </div>

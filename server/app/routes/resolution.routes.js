@@ -9,8 +9,8 @@ module.exports = app => {
   // Retrieve all Resolutions
   router.get("/", resolutions.findAll);
 
-  // Retrieve all published Resolutions
-  router.get("/published", resolutions.findAllPublished);
+  // Retrieve all achieved Resolutions
+  router.get("/achieved", resolutions.findAllAchieved);
 
   // Retrieve a single Resolution with id
   router.get("/:id", resolutions.findOne);

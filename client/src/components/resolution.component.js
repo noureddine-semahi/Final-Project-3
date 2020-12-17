@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import ResolutionDataService from "../services/resolution.service";
 
 export default class Resolution extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeGoals = this.onChangeGoals.bind(this);
     this.getResolution = this.getResolution.bind(this);
     this.updateAchieved = this.updateAchieved.bind(this);
     this.updateResolution = this.updateResolution.bind(this);
@@ -15,7 +16,7 @@ export default class Resolution extends Component {
       currentResolution: {
         id: null,
         title: "",
-        description: "",
+        goals: "",
         achieved: false
       },
       message: ""
@@ -31,6 +32,7 @@ export default class Resolution extends Component {
 
     this.setState(function(prevState) {
       return {
+        
         currentResolution: {
           ...prevState.currentResolution,
           title: title
@@ -39,13 +41,13 @@ export default class Resolution extends Component {
     });
   }
 
-  onChangeDescription(e) {
-    const description = e.target.value;
+  onChangeGoals(e) {
+    const goals = e.target.value;
     
     this.setState(prevState => ({
       currentResolution: {
         ...prevState.currentResolution,
-        description: description
+        goals: goals
       }
     }));
   }
@@ -67,7 +69,7 @@ export default class Resolution extends Component {
     var data = {
       id: this.state.currentResolution.id,
       title: this.state.currentResolution.title,
-      description: this.state.currentResolution.description,
+      goals: this.state.currentResolution.goals,
       achieved: status
     };
 
@@ -133,13 +135,13 @@ export default class Resolution extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Description</label>
+                <label htmlFor="goals">Goals</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="description"
-                  value={currentResolution.description}
-                  onChange={this.onChangeDescription}
+                  id="goals"
+                  value={currentResolution.goals}
+                  onChange={this.onChangeGoals}
                 />
               </div>
 
@@ -147,7 +149,7 @@ export default class Resolution extends Component {
                 <label>
                   <strong>Status:</strong>
                 </label>
-                {currentResolution.achieved ? "Achieved" : "Still working on it"}
+                {currentResolution.achieved ? "Achieved" : "Working on it"}
               </div>
             </form>
 
@@ -182,7 +184,14 @@ export default class Resolution extends Component {
               Update
             </button>
             <p>{this.state.message}</p>
+            <Link
+                to={"/resolutions/"}
+                className="badge badge-warning"
+              >
+                Show my Resolutions
+            </Link>
           </div>
+          
         ) : (
           <div>
             <br />

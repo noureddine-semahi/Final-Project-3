@@ -1,19 +1,20 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import ResolutionDataService from "../services/resolution.service";
 
 export default class AddResolution extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeGoals = this.onChangeGoals.bind(this);
     this.saveResolution = this.saveResolution.bind(this);
     this.newResolution = this.newResolution.bind(this);
 
     this.state = {
       id: null,
       title: "",
-      description: "", 
-      published: false,
+      goals: "", 
+      achieved: false,
 
       submitted: false
     };
@@ -25,16 +26,16 @@ export default class AddResolution extends Component {
     });
   }
 
-  onChangeDescription(e) {
+  onChangeGoals(e) {
     this.setState({
-      description: e.target.value
+      goals: e.target.value
     });
   }
 
   saveResolution() {
     var data = {
       title: this.state.title,
-      description: this.state.description
+      goals: this.state.goals
     };
 
     ResolutionDataService.create(data)
@@ -42,8 +43,8 @@ export default class AddResolution extends Component {
         this.setState({
           id: response.data.id,
           title: response.data.title,
-          description: response.data.description,
-          published: response.data.published,
+          goals: response.data.goals,
+          achieved: response.data.achieved,
 
           submitted: true
         });
@@ -58,8 +59,8 @@ export default class AddResolution extends Component {
     this.setState({
       id: null,
       title: "",
-      description: "",
-      published: false,
+      goals: "",
+      achieved: false,
 
       submitted: false
     });
@@ -70,7 +71,7 @@ export default class AddResolution extends Component {
       <div className="submit-form">
         {this.state.submitted ? (
           <div>
-            <h4>You submitted successfully!</h4>
+            <h4>You have successfully submitted your new resolution!</h4>
             <button className="btn btn-success" onClick={this.newResolution}>
               Add
             </button>
@@ -78,7 +79,7 @@ export default class AddResolution extends Component {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="title">Title</label>
+              <label htmlFor="title">Resolution</label>
               <input
                 type="text"
                 className="form-control"
@@ -91,21 +92,27 @@ export default class AddResolution extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="goals">Goals</label>
               <input
-                type="text"
+                type="message"
                 className="form-control"
-                id="description"
+                id="goals"
                 required
-                value={this.state.description}
-                onChange={this.onChangeDescription}
-                name="description"
+                value={this.state.goals}
+                onChange={this.onChangeGoals}
+                name="goals"
               />
             </div>
 
             <button onClick={this.saveResolution} className="btn btn-success">
               Submit
             </button>
+            <Link
+                to={"/resolutions/"}
+                className="badge badge-warning"
+              >
+                Show my Resolutions
+            </Link>
           </div>
         )}
       </div>
