@@ -13,7 +13,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="kabyldorado.us.auth0.com"
     clientId="YGFdXA07mJmG4LiZlGn4xTQB6G0cuL4X"
-    redirectUri={window.location.origin}
+    redirectUri={`${window.location.origin}/resolutions`}
   >
   <BrowserRouter>
     <App />
