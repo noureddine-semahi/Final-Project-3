@@ -74,8 +74,9 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  Resolution.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Resolution.findByIdAndUpdate(id, req.body, { useFindAndModify: false, new: true })
     .then(data => {
+      console.log(data);
       if (!data) {
         res.status(404).send({
           message: `Cannot update Resolution with id=${id}. Maybe Resolution was not found!`
@@ -130,8 +131,9 @@ exports.deleteAll = (req, res) => {
 
 // Find all achieved Resolutions
 exports.findAllAchieved = (req, res) => {
-  Resolution.find({ achieved: true })
+  Resolution.findAll({ where: {achieved: true }})
     .then(data => {
+      console,log(data);
       res.send(data);
     })
     .catch(err => {

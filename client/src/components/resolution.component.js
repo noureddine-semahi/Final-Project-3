@@ -155,40 +155,40 @@ export default class Resolution extends Component {
 
             {currentResolution.achieved ? (
               <button
-                className="badge badge-primary mr-2"
+                className="btn btn-dark mr-2"
                 onClick={() => this.updateAchieved(false)}
               >
                 Work more
               </button>
             ) : (
               <button
-                className="badge badge-primary mr-2"
+                className="btn btn-info mr-2"
                 onClick={() => this.updateAchieved(true)}
               >
-                Achieved !!
+                Achieved
               </button>
             )}
 
-            <button
-              className="badge badge-danger mr-2"
-              onClick={this.deleteResolution}
-            >
-              Delete
-            </button>
+              <button
+                className="btn btn-danger mr-2"
+                onClick={this.deleteResolution}
+              >
+                Delete
+              </button>
 
-            <button
-              type="submit"
-              className="badge badge-success"
-              onClick={this.updateResolution}
-            >
-              Update
-            </button>
-            <p>{this.state.message}</p>
+              <button
+                type="submit"
+                className="btn btn-warning"
+                onClick={this.updateResolution}
+              >
+                Update
+              </button>
+              <p>{this.state.message}</p>
             <Link
                 to={"/resolutions/"}
-                className="badge badge-warning"
+                className="btn btn-success"
               >
-                Show my Resolutions
+                My Resolutions
             </Link>
           </div>
           

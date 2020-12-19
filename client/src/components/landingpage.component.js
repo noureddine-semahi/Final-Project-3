@@ -1,6 +1,9 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
+import LoginButton from "./loginbutton";
+import Header from './Header';
 import WOW from "wowjs";
 
 export default class LandingPage extends React.Component {
@@ -10,19 +13,10 @@ export default class LandingPage extends React.Component {
 
 	render() {
 		return (
-			<div id="my-background" className="background">
-				<div id="stars" />
-				<div id="stars2" />
-				<div id="stars3" />
-				<div className="top-container flex">
-					<h2>
-						Welcome to New Year's
-                        <br></br>
-                        Resolutions Keeper !
-					</h2>
-					{/* offset can be cahnged in node modules wowjs default file */}
-					
-				</div>
+			<div className="home-page">
+        		<Header />
+				
+        		
 			</div>
 		);
 	}

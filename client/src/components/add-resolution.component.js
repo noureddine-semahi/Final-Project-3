@@ -104,14 +104,14 @@ export default class AddResolution extends Component {
               />
             </div>
 
-            <button onClick={this.saveResolution} className="btn btn-success">
+            <button onClick={this.saveResolution} className="m-3 btn btn btn-primary">
               Submit
             </button>
             <Link
                 to={"/resolutions/"}
-                className="badge badge-warning"
+                className="m-3 btn btn btn-success"
               >
-                Show my Resolutions
+                My Resolutions
             </Link>
           </div>
         )}

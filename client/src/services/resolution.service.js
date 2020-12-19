@@ -29,9 +29,9 @@ class ResolutionDataService {
     return http.get(`/resolutions?title=${title}`);
   }
 
-  //findAllAchieved(achieved) {
-  //  return http.get(`/resolutions?achieved=${ true }`);
-  //}
+  findAllAchieved(achieved) {
+  return http.get(`/resolutions`);
+  }
 }
 
 export default new ResolutionDataService();

@@ -47,7 +47,7 @@ export default class ResolutionsList extends Component {
   }
 
   findAllAchieved() {
-    ResolutionDataService.getAll({ achieved: true })
+    ResolutionDataService.getAll()
       .then(response => {
         this.setState({
           resolutions: response.data
@@ -121,7 +121,7 @@ export default class ResolutionsList extends Component {
             />
             <div className="input-group-append">
               <button
-                className="btn btn-outline-secondary"
+                className="btn btn-outline-primary"
                 type="button"
                 onClick={this.searchTitle}
               >
@@ -156,13 +156,13 @@ export default class ResolutionsList extends Component {
             Remove All
           </button>
           <button
-            className="m-3 btn btn-sm btn-danger"
+            className="m-3 btn btn-sm btn-success"
             onClick={this.findAllAchieved}
           >
             Sort by Status
           </button>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-5">
           {currentResolution ? (
             <div>
               <h4>Resolution</h4>
@@ -187,7 +187,7 @@ export default class ResolutionsList extends Component {
 
               <Link
                 to={"/resolutions/" + currentResolution.id}
-                className="badge badge-warning"
+                className="btn btn-sm btn-warning"
               >
                 Edit
               </Link>
@@ -195,7 +195,7 @@ export default class ResolutionsList extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a Resolution to edit the details</p>
+              <p>Please click on a Resolution to show the details</p>
             </div>
           )}
         </div>

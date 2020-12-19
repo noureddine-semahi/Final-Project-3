@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
 
 /*****************STARTS TOP BACKGROUND SECTION***************/
+body {
+  width: 100vw;
+  height: 100vh;
+}
 #stars {
   width: 1px;
   height: 1px;
@@ -68,41 +72,12 @@
 .container .mt-3 {
     overflow: hidden;
     background: radial-gradient(ellipse at bottom, #092749 0%, #050e3a 100%);
-    height: 100vh;
-    background-size: cover;
-    
+    height: 100vh;   
 }
 body::-webkit-scrollbar {
     display: none;
 }
 
-.top-container {
-    top: 70%;
-    left: 50%;
-    font-weight: bolder;
-    margin: 150px auto;
-    width: 70%;
-    padding: 1rem;
-    letter-spacing: .5rem;
-    align-items: center;
-    justify-items: center;
-    text-align: center;
-    background: rgba(255,255,255, 0.2);
-    border-radius: 5em;
-    z-index: 1;
-    backdrop-filter: blur(40px);
-    border: solid 2px transparent;
-    background-clip: padding-box;
-    box-shadow: 10px 10px 10px  rgba(46, 54, 68, 0.03);
-}
-h2 {
-    font-family: 'Poppins';
-    font-size: 3rem;
-    font-weight: bold;
-    -webkit-text-fill-color: white; 
-    -webkit-text-stroke-width: 0.1px;
-    -webkit-text-stroke-color: red;
-}
 
 .navbar {
     font-family: 'Poppins';
@@ -113,7 +88,7 @@ h2 {
     width: 100vw;
     position: sticky;
     top: 0;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 3px 10px rgba(143, 129, 129, 0.3);
     min-height: 10vh;
     display: flex;
     align-items: center;
@@ -145,4 +120,10 @@ h2 {
   opacity: 0;
   transition: .5s ease;
   background-color: #f8f9fa;
+}
+
+.container .mt-5{
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
 }
