@@ -7,7 +7,10 @@ import AddResolution from "./components/add-resolution.component";
 import Resolution from "./components/resolution.component";
 import ResolutionsList from "./components/resolutions-list.component";
 import LandingPage from "./components/landingpage.component";
+import Random from "./components/random";
 import LogoutButton from "./components/logoutbutton";
+import logo from "./assets/logo.png";
+import Footer from './components/Footer';
 //import { useAuth0 } from "@auth0/auth0-react";
 
 
@@ -20,18 +23,25 @@ class App extends Component {
       <div>
         {location.pathname !== "/" && 
         <nav className="navbar navbar-expand navbar-dark bg-dark">
+          <img className="mb-3 app-logo" src={logo} alt="React logo" width="90" />
           <Link to={"/"} className="navbar-brand">
             Resolutions Keeper
           </Link>
+          
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/resolutions"} className="nav-link">
-                My Resolutions
+                My List
               </Link>
             </li>
             <li className="nav-item">
               <Link to={"/add"} className="nav-link">
-                Add new Resolutions
+                Add
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/random"} className="nav-link">
+                Random
               </Link>
             </li>
             <li className="nav-item">
@@ -48,6 +58,7 @@ class App extends Component {
           <div id="stars" />
           <div id="stars2" />
           <div id="stars3" />
+          <Footer />
         </div>
        
 
@@ -57,8 +68,12 @@ class App extends Component {
             <Route exact path="/resolutions" component={ResolutionsList} />
             <Route exact path="/add" component={AddResolution} />
             <Route path="/resolutions/:id" component={Resolution} />
+            
           </Switch>
+          
         </div>
+        
+  
       </div>
       
     );

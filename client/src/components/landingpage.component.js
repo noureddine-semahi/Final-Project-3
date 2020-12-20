@@ -1,9 +1,9 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
-import LoginButton from "./loginbutton";
+
 import Header from './Header';
+import Footer from './Footer';
 import WOW from "wowjs";
 
 export default class LandingPage extends React.Component {
@@ -16,7 +16,7 @@ export default class LandingPage extends React.Component {
 			<div className="home-page">
         		<Header />
 				
-        		
+        		<Footer />
 			</div>
 		);
 	}

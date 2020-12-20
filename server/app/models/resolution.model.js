@@ -4,8 +4,11 @@ module.exports = mongoose => {
       title: String,
       goals: String,
       achieved: Boolean
+      
     },
-    { timestamps: true }
+    { timestamps: true },
+    { isAuthenticated: Boolean}
+
   );
 
   schema.method("toJSON", function() {

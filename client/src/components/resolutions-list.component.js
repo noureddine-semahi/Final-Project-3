@@ -69,6 +69,7 @@ export default class ResolutionsList extends Component {
   }
 
   setActiveResolution(Resolution, index) {
+    console.log("test");
     this.setState({
       currentResolution: Resolution,
       currentIndex: index
