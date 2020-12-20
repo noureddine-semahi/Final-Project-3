@@ -7,7 +7,6 @@ import AddResolution from "./components/add-resolution.component";
 import Resolution from "./components/resolution.component";
 import ResolutionsList from "./components/resolutions-list.component";
 import LandingPage from "./components/landingpage.component";
-import Random from "./components/random";
 import LogoutButton from "./components/logoutbutton";
 import logo from "./assets/logo.png";
 import Footer from './components/Footer';
