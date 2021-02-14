@@ -150,10 +150,7 @@ export default class Resolution extends Component {
                   <strong>Status:</strong>
                 </label>
                 {currentResolution.achieved ? "Achieved" : "Working on it"}
-              </div>
-            </form>
-
-            {currentResolution.achieved ? (
+                {currentResolution.achieved ? (
               <button
                 className="m-3 btn btn-sm btn-dark"
                 onClick={() => this.updateAchieved(false)}
@@ -168,6 +165,10 @@ export default class Resolution extends Component {
                 Achieved
               </button>
             )}
+              </div>
+            </form>
+
+            
 
               <button
                 className="m-3 btn btn-sm btn-danger"
