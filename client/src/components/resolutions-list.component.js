@@ -162,6 +162,11 @@ export default class ResolutionsList extends Component {
           >
             Sort by Status
           </button>
+          <Link
+            to={"/add"}
+            className="m-3 btn btn-sm btn-warning">
+            Add Resolutions
+          </Link>
         </div>
         <div className="col-md-5">
           {currentResolution ? (
@@ -198,7 +203,9 @@ export default class ResolutionsList extends Component {
               <br />
               <p>Please click on a Resolution to show the details</p>
             </div>
+            
           )}
+          
         </div>
       </div>
     );

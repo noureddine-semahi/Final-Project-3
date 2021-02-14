@@ -155,14 +155,14 @@ export default class Resolution extends Component {
 
             {currentResolution.achieved ? (
               <button
-                className="btn btn-dark mr-2"
+                className="m-3 btn btn-sm btn-dark"
                 onClick={() => this.updateAchieved(false)}
               >
-                Work more
+                Needs Work
               </button>
             ) : (
               <button
-                className="btn btn-info mr-2"
+                className="m-3 btn btn-sm btn-info"
                 onClick={() => this.updateAchieved(true)}
               >
                 Achieved
@@ -170,7 +170,7 @@ export default class Resolution extends Component {
             )}
 
               <button
-                className="btn btn-danger mr-2"
+                className="m-3 btn btn-sm btn-danger"
                 onClick={this.deleteResolution}
               >
                 Delete
@@ -178,7 +178,7 @@ export default class Resolution extends Component {
 
               <button
                 type="submit"
-                className="btn btn-warning"
+                className="m-3 btn btn-sm btn-warning"
                 onClick={this.updateResolution}
               >
                 Update
@@ -186,9 +186,9 @@ export default class Resolution extends Component {
               <p>{this.state.message}</p>
             <Link
                 to={"/resolutions/"}
-                className="btn btn-success"
+                className="m-3 btn btn-sm btn-success"
               >
-                My Resolutions
+               Go To My Resolutions
             </Link>
           </div>
           

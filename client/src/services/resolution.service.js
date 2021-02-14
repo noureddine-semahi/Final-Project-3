@@ -28,10 +28,6 @@ class ResolutionDataService {
   findByTitle(title) {
     return http.get(`/resolutions?title=${title}`);
   }
-
-  findAllAchieved(achieved) {
-  return http.get(`/resolutions`);
-  }
 }
 
 export default new ResolutionDataService();
