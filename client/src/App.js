@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Spinner from 'react-bootstrap/Spinner'
 import "./App.css";
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
@@ -65,7 +66,23 @@ class App extends Component {
           {currentUser && (
               <li className="nav-item">
                 
+                
                 <NavDropdown title="Menu" id="nav-dropdown">
+                  <Spinner className="loading-spinner" animation="border" variant="primary" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </Spinner>
+                  <Spinner className="loading-spinner" animation="border" variant="success" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </Spinner>
+                  <Spinner className="loading-spinner" animation="border" variant="warning" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </Spinner>
+                  <Spinner className="loading-spinner" animation="border" variant="danger" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </Spinner>
+                  <Spinner className="loading-spinner" animation="border" variant="dark" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </Spinner>
                   <NavDropdown.Item eventKey="4.1">
                     <Link to={"/user"} className="nav-link">
                       User
@@ -158,6 +175,7 @@ class App extends Component {
                   Sign Up
                 </Link>
               </li>
+              
             </div>
           )}
         </nav>

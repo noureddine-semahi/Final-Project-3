@@ -70,16 +70,17 @@ h4 {
 div.dropdown-menu.show{
   font-family: 'Poppins';
   background-color: #2876f9;
-  background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
+  background-image: linear-gradient(177deg, #2876f9 0%, #6d17cb 74%);
   color: white;
   border: 3px black solid;
   margin-top: 30px;
   border-radius: 1em;
+  width: 170px;
 }
 
 .dropdown-item:hover {
   background-color: #6d17cb;
-  background-image: linear-gradient(315deg,#6d17cb 0%, #2876f9  80%);
+  background-image: linear-gradient(177deg,#6d17cb 0%, #2876f9  80%);
 
 }
 a.dropdown-item a.nav-link{
@@ -92,7 +93,7 @@ a.dropdown-item a.nav-link{
 
 a.dropdown-item a.nav-link:hover {
   background-color: #ffffff;
-  background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+  background-image: linear-gradient(90deg, #f80303 0%, #d7e1ec 74%);
   
 
 }
